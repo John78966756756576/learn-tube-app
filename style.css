@@ -1,0 +1,289 @@
+:root {
+    --bg: #121212;
+    --surface: #1a1a1a;
+    --text: #ffffff;
+    --accent: #646cff;
+    --sidebar-width: 300px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--surface);
+    border-right: 1px solid #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.sidebar-header h1 {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.sidebar-search {
+    padding: 1rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.sidebar-nav {
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.sidebar-nav button {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    width: 100%;
+    text-align: left;
+}
+
+.sidebar-nav button.active {
+    color: var(--accent);
+    background: #242424;
+}
+
+.sidebar-content {
+    padding: 1rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.sidebar-content h2 {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background: #242424;
+    border: none;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: 1px solid var(--accent);
+}
+
+.playlist-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.playlist-card {
+    background: #242424;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.playlist-card:hover {
+    background: #2a2a2a;
+    transform: translateX(4px);
+}
+
+.playlist-card.active {
+    background: var(--accent);
+}
+
+.playlist-card.active span {
+    color: var(--text);
+}
+
+.playlist-card.hidden {
+    display: none;
+}
+
+.playlist-card span {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.video-player {
+    background: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #242424;
+}
+
+.video-controls {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+}
+
+.video-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.video-details {
+    flex-grow: 1;
+}
+
+#videoDescription {
+    color: #888;
+    margin: 0.5rem 0 1rem;
+}
+
+.context-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+.context-section h4 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.context-section ul {
+    list-style: none;
+}
+
+.context-section li {
+    color: #888;
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+.video-info button {
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.video-info button:hover {
+    background: #535bf2;
+}
+
+@media (max-width: 768px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #2a2a2a;
+    }
+
+    .sidebar-content {
+        padding: 1rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .playlist-grid {
+        flex-direction: column;
+    }
+
+    .context-info {
+        grid-template-columns: 1fr;
+    }
+
+    .video-info {
+        flex-direction: column;
+    }
+
+    .video-info button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnTube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>LearnTube</h1>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="searchInput" placeholder="Search to learn...">
+            </div>
+            <nav class="sidebar-nav">
+                <button class="active" data-view="learn">Learn</button>
+                <button data-view="library">Library</button>
+            </nav>
+            <div class="sidebar-content">
+                <h2>My Playlists</h2>
+                <div class="playlist-grid" id="playlistGrid">
+                    <div class="playlist-card" data-category="cs">
+                        <h3>Computer Science</h3>
+                        <span>24</span>
+                    </div>
+                    <div class="playlist-card" data-category="math">
+                        <h3>Mathematics</h3>
+                        <span>16</span>
+                    </div>
+                    <div class="playlist-card" data-category="physics">
+                        <h3>Physics</h3>
+                        <span>18</span>
+                    </div>
+                    <div class="playlist-card" data-category="lang">
+                        <h3>Language</h3>
+                        <span>12</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="current-video">
+                <div class="video-player">
+                    <div class="video-container" id="videoContainer"></div>
+                    <div class="video-controls">
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress" id="progress"></div>
+                        </div>
+                        <button class="play-btn" id="playBtn">▶</button>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="video-details">
+                        <h2 id="videoTitle">Data Structures & Algorithms</h2>
+                        <p id="videoDescription"></p>
+                        <div class="context-info" id="contextInfo"></div>
+                    </div>
+                    <button id="nextBtn">Next →</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
